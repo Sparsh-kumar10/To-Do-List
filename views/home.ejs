@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://kit.fontawesome.com/39f8eed085.js" crossorigin="anonymous"></script>
+    <title>To Do List</title>
+</head>
+
+<body>
+    <main>
+        <div class="box">
+            <h1>To Do List</h1>
+            <div class="addTaskBox">
+                <form action="/add-task" method="POST">
+                    <div class="inputField">
+                        <input type="text" name="title" placeholder="Title...">
+                        <input type="text" name="about" placeholder="ABout...">
+                    </div>
+                    <button type="submit" class="add">+</button>
+                </form>   
+            </div>
+
+            <% if(task.length > 0) { %>
+                <% var num=1%>
+            <div class="tasks">
+                <% for(let tasks of task) { %>
+                <div class="task" id="task<%= num %>">
+                    <div class="taskDetail">
+                        <h1><%= tasks.title %></h1>
+                        <p class="taskInfo">
+                            <%= tasks.about %> 
+                        </p>
+                        <span></span>
+                        <button class="morebtn">more</button>
+                    </div>
+                    <div class="deleteBtn">
+                        <a href="/deletTask/<%= tasks._id %>"><button>X</button></a> 
+                    </div>
+                    <div class="hiddenBtn">
+                        <div class="btns">
+                            <a href=""><button><i class="fa-regular fa-share-nodes"></i></button></a> 
+                            <a href=""><button><i class="fa-solid fa-info"></i></button></a>
+                            <a href=""><button><i class="fa-solid fa-pen"></i></button></a>
+                        </div>
+                    </div>
+                </div>
+                <% num=num+1 %>
+                <% } %>
+            <% } else { %>
+                <div class="notask">
+                    <h1>No Task</h1>
+                </div>
+                    <% } %>
+            </div>
+        </div>
+    </main>
+    <script src="/js/index.js"></script>
+</body>
+
+</html>
