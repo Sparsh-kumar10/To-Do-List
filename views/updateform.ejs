@@ -12,13 +12,14 @@
 
 <body>
     <main>
+        <% var updatetaskId %>
         <div class="box">
             <h1>To Do List</h1>
             <div class="addTaskBox">
                 <form action="/add-task" method="POST">
                     <div class="inputField">
                         <input type="text" name="title" placeholder="Title...">
-                        <input type="text" name="about" placeholder="About...">
+                        <input type="text" name="about" placeholder="ABout...">
                     </div>
                     <button type="submit" class="add">+</button>
                 </form>
@@ -59,7 +60,18 @@
                             </div>
                         <% } %>
                     </div>
-            
+                
+                
+        </div>
+        <div class="updateform">
+            <div class="close">
+                <a href="/"><button>X</button></a>
+            </div>
+            <form action="/updatetask/<%= taskId %>" method="POST">
+                <input type="text" name="updatetitle" value="<%= updatetask.title %>" >
+                <textarea name="updateabout" id="" cols="30" rows="5"><%= updatetask.about %></textarea>
+                <button type="submit">Updata Task</button>
+            </form>
         </div>
     </main>
     <script src="/js/index.js"></script>

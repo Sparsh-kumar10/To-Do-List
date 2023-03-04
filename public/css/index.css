@@ -120,10 +120,11 @@ main{
     justify-content: center;
     align-items: center;
     justify-content: flex-end;
+    gap: .3rem;
 }
-.deleteBtn a{
+/* .deleteBtn a{
     margin-right: 1rem;
-}
+} */
 .deleteBtn button{
     width: 2.5rem;
     height: 2.5rem;
@@ -135,22 +136,6 @@ main{
     background-color: #1b1a17;
 }
 
-
-.hiddenBtn{
-    display: none;
-}
-.block{
-    display: block;
-    grid-column: 1/-1;
-    width: 100%;
-}
-.btns{
-    padding: 1rem 0rem;
-    display:  flex;
-    justify-content: flex-end;
-    padding-right: 1rem;
-    gap: .5rem;
-}
 .btns button{
     width: 2.2rem;
     height: 2.2rem;
@@ -159,6 +144,16 @@ main{
     border-radius: 5px;
     border: 2px solid #ff8303;
     background-color: #1b1a17;
+} 
+
+.Btn{
+    width: 100%;
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+
 }
 
 @media screen and (max-width: 950px) {
@@ -177,4 +172,68 @@ main{
     border-bottom: 3px solid  #ff8303;
     text-align: center;
     padding: 1rem 0rem;
+}
+
+.updateform{
+    background-color: #30302c;
+    position: absolute;
+    position: sticky;
+    z-index: 1000;
+    border: 2px solid #ff8303;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    border-radius: 10px;
+}
+.updateform form input,textarea{
+    width: 100%;
+    font-size: 1.2rem;
+    padding: .3rem;
+    background-color: #30302c;
+    border-color: #ff8303;
+    border-radius: 5px;
+    color: white;
+}
+.updateform .close{
+    width: auto;
+    display: flex;
+    justify-items: flex-end;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.updateform .close button{
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid #ff8303;
+    background-color: #1b1a17;
+} 
+.updateform form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 0rem;
+}
+.updateform form button{
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid #ff8303;
+    background-color: #1b1a17;
+}
+.updateform form input{
+    width: 100%;
+}
+.updateform form button{
+    width: 50%;
 }

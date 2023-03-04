@@ -9,4 +9,8 @@ router.post('/add-task',homeController.addTask)
 
 router.get('/deletTask/:taskId',homeController.deleteTask);
 
+router.get('/updateTask/:taskId',homeController.updateTask)
+
+router.post('/updatetask/:taskId',homeController.postUpdateTask)
+
 module.exports=router;

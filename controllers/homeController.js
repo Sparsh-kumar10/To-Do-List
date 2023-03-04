@@ -3,11 +3,9 @@ const Task=require('../models/tasks')
 
 exports.home=function(req,res){
     Task.find().then(task=>{
-        let num=1;
         console.log(task)
         return res.render('home',{
             task:task,
-            num:num
         })
     })
 }
@@ -33,5 +31,31 @@ exports.deleteTask=function(req,res){
     .catch(err=>{
         console.log(err);
     })
+}
 
+exports.updateTask=function(req,res){
+    const taskId=req.params.taskId;
+    Task.find().then(task=>{
+        Task.findById(taskId).then(updatatask=>{
+            return res.render('updateform',{
+                task:task,
+                updatetask:updatatask,
+                taskId:taskId
+            })
+        })
+    })
+}
+
+exports.postUpdateTask=function(req,res){
+    const updatetitle=req.body.updatetitle;
+    const updateabout=req.body.updateabout;
+    const taskId=req.params.taskId;
+    Task.findById(taskId).then(task=>{
+        task.title=updatetitle,
+        task.about=updateabout
+        return task.save();
+    }).then(result=>{
+        console.log("task update");
+        return res.redirect('/');
+    })
 }
