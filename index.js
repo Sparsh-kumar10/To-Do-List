@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/',require('./routes/main'))
 
 
-mongoose.connect('mongodb+srv://Sparsh:spa123rsh@cluster0.lw6t6qn.mongodb.net/?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://Sparsh:Spa{1020}rsh@cluster0.lw6t6qn.mongodb.net/?retryWrites=true&w=majority')
 .then(result=>{
     app.listen(1000)
 })
